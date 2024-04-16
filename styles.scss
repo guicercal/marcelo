@@ -9,7 +9,7 @@ body {
 	overflow-x: hidden;
 	height: 4000px;
 	padding-top: 220px;
-	
+
 	@media (max-width: 1050px) {
 		padding-top: 160px;
 	}
@@ -29,7 +29,7 @@ body {
 	path {
 		fill: $color-text;
 	}
-	
+
 	@media (max-width: 1050px) {
 		display: block;
 	}
@@ -47,7 +47,7 @@ body {
 	padding: 36px 0;
 	transition: all .2s ease;
 	z-index: 100;
-	
+
 	&__wrapper {
 		display: flex;
 		align-items: end;
@@ -55,68 +55,68 @@ body {
 		transition: all .2s ease;
 		position: relative;
 	}
-	
+
 	&__nav ul {
 		display: flex;
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		
+
 		li {
 			margin: 0 20px;
 		}
-		
+
 		a {
 			color: $color-text;
 			font-weight: 700;
 			text-decoration: none;
 			font-size: calc(12px + (18 - 12) * ((100vw - 981px) / (1920 - 981)));
-			
+
 			&:hover {
 				color: $color-accent;
 			}
 		}
 	}
-	
+
 	&__logo--sticky {
 		display: none;
 	}
-	
+
 	&.sticky {
 		position: fixed;
 		padding: 20px 0;
 		transition: all .2s ease;
 		transform: translateY(-100%);
 		animation: header-entry forwards 200ms;
-		
+
 		.main-header__wrapper {
 			align-items: center;
 			transition: all .2s ease;
-			
+
 		}
-		
+
 		.main-header__logo--sticky {
 			display: block;
 		}
-		
+
 		.main-header__logo {
 			display: none;
 		}
 	}
-	
+
 	@media (max-width: 1050px) {
 		padding: 20px 0;
-		
+
 		.main-header__wrapper {
 			align-items: center;
 		}
-		
+
 		.main-header__logo {
 			img {
 				height: 120px;
 			}
 		}
-		
+
 		.main-header__nav {
 			position: absolute;
 			left: -20px;
@@ -127,22 +127,22 @@ body {
 			transform: translateX(-100%);
 			transition: all .2s ease;
 			padding: 20px 0;
-			
+
 			ul {
 				flex-direction: column;
 				gap: 20px;
 			}
-			
+
 			li a {
 				font-size: 1rem;
 			}
 		}
-		
+
 		&.opened {
 			.main-header__nav {
 				transform: translateX(0%);
 				transition: all .2s ease;
-				
+
 			}
 		}
 	}
@@ -152,24 +152,27 @@ body {
 	padding: 200px 0;
 	background-color: #2B2784;
 	width: 100%;
-	
+
 	h1 {
 		color: $color-accent;
 		font-size: 48px;
 		font-weight: bold;
 	}
-	
+
 	p {
 		color: $color-white;
 		font-size: 22px;
 		font-weight: 300;
 	}
-	
+
 	@media (max-width: 1050px) {
 		padding-top: 100px;
 	}
-	
+
+
+
 }
+
 
 
 @keyframes header-entry {
@@ -180,3 +183,27 @@ body {
 		transform: translateY(0%);
 	}
 }
+.about {
+	background-color: #20CF66;
+
+	h3{
+		color: $color-accent;
+		font-size:32px;
+		font-weight: bold;
+	}
+
+
+}
+.fonoaudiologia-clinica {
+	h1{
+		color: $color-accent;
+		font-size: 55px;
+		font-weight: bold;
+	}
+	row-cols-3 {
+
+	}
+
+}
+
+

@@ -156,5 +156,19 @@ body {
     transform: translateY(0%);
   }
 }
+.about {
+  background-color: #20CF66;
+}
+.about h3 {
+  color: #00BABC;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.fonoaudiologia-clinica h1 {
+  color: #00BABC;
+  font-size: 55px;
+  font-weight: bold;
+}
 
 /*# sourceMappingURL=styles.css.map */
