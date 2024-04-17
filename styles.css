@@ -142,12 +142,17 @@ body {
   font-size: 22px;
   font-weight: 300;
 }
+.hero .card-img-overlay {
+  max-width: 100%;
+  height: auto;
+  float: right;
+  horiz-align: right;
+}
 @media (max-width: 1050px) {
   .hero {
     padding-top: 100px;
   }
 }
-
 @keyframes header-entry {
   0% {
     transform: translateY(-100%);
@@ -163,12 +168,34 @@ body {
   color: #00BABC;
   font-size: 32px;
   font-weight: bold;
+  padding-left: 500px;
+}
+.about p {
+  color: #ffffff;
+  font-size: 20px;
+  padding-left: 500px;
+  text-align: left;
+  box-sizing: border-box;
 }
 
 .fonoaudiologia-clinica h1 {
   color: #00BABC;
   font-size: 55px;
   font-weight: bold;
+}
+.fonoaudiologia-clinica h3 {
+  font-size: 24px;
+  text-align: left;
+}
+.fonoaudiologia-clinica p {
+  font-size: 20px;
+  text-align: left;
+}
+.fonoaudiologia-clinica .roxo {
+  color: #5F5BCA;
+}
+.fonoaudiologia-clinica .verde {
+  color: #00BABC;
 }
 
 /*# sourceMappingURL=styles.css.map */
