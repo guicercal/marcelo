@@ -321,4 +321,16 @@ h1, .h1 {
   max-width: 243px;
 }
 
+.personal-voice {
+  background-color: #5F5BCA;
+  color: #ffffff;
+}
+.personal-voice h2 {
+  font-size: 40;
+  font-weight: bold;
+}
+.personal-voice p {
+  font-size: 20;
+}
+
 /*# sourceMappingURL=styles.css.map */
