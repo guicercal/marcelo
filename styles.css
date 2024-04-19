@@ -288,6 +288,7 @@ h1, .h1 {
 .fonoaudiologia-clinica p {
   font-size: 20px;
   text-align: left;
+  color:black ;
 }
 .fonoaudiologia-clinica .roxo {
   color: #5F5BCA;
@@ -337,19 +338,15 @@ h1, .h1 {
   background: rgb(2, 0, 36);
   background: linear-gradient(0deg, rgb(2, 0, 36) 0%, rgb(0, 186, 188) 0%, rgb(0, 212, 255) 73%, rgb(0, 186, 188) 100%);
 }
-.capacitacao-profissional cap-image {
-  font-size: 20px;
-  padding-left: 20px;
-  padding-top: 20%;
-  float: left;
-}
-.capacitacao-profissional p {
+
+p {
   color: #ffffff;
   font-size: 20px;
   text-align: left;
   box-sizing: border-box;
 }
-.capacitacao-profissional h2 {
+
+h2 {
   color: #ffffff;
   font-size: 40px;
   font-weight: bold;
