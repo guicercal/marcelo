@@ -257,6 +257,7 @@ h1, .h1 {
 
 .fonoaudiologia-clinica {
   padding: 40px 0;
+  position: relative;
 }
 .fonoaudiologia-clinica .fc-heading {
   position: relative;
@@ -288,7 +289,6 @@ h1, .h1 {
 .fonoaudiologia-clinica p {
   font-size: 20px;
   text-align: left;
-  color:black ;
 }
 .fonoaudiologia-clinica .roxo {
   color: #5F5BCA;
@@ -299,6 +299,10 @@ h1, .h1 {
 .fonoaudiologia-clinica .fc-item {
   position: relative;
   padding: 0 20px 0 30px;
+  margin-bottom: 40px;
+}
+.fonoaudiologia-clinica .fc-item p {
+  font-size: 20px;
 }
 .fonoaudiologia-clinica .fc-item::before {
   content: "";
@@ -321,8 +325,27 @@ h1, .h1 {
   width: 100%;
   max-width: 243px;
 }
+.fonoaudiologia-clinica::after {
+  content: "";
+  position: absolute;
+  top: 65%;
+  right: 15%;
+  width: 300px;
+  aspect-ratio: 454/654;
+  background-image: url(assets/images/logo.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+  transform: rotateY(180deg);
+}
+@media (max-width: 775px) {
+  .fonoaudiologia-clinica::after {
+    display: none;
+  }
+}
 
 .personal-voice {
+  padding: 65px 0 0;
   background-color: #5F5BCA;
   color: #ffffff;
 }
@@ -333,23 +356,251 @@ h1, .h1 {
 .personal-voice p {
   font-size: 20px;
 }
-
-.capacitacao-profissional {
-  background: rgb(2, 0, 36);
-  background: linear-gradient(0deg, rgb(2, 0, 36) 0%, rgb(0, 186, 188) 0%, rgb(0, 212, 255) 73%, rgb(0, 186, 188) 100%);
+.personal-voice .pv-icon {
+  width: 100%;
+  max-width: 356px;
+  object-fit: contain;
+}
+.personal-voice .pv-subheading {
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+.personal-voice .pv-content-list {
+  list-style: none;
+}
+.personal-voice .pv-content-list li {
+  position: relative;
+  margin-bottom: 5px;
+}
+.personal-voice .pv-content-list li::before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-image: url(assets/images/check-icon.svg);
+  background-size: cover;
+}
+.personal-voice .saiba-mais {
+  width: 100%;
+  background: rgb(95, 91, 202);
+  background: linear-gradient(180deg, rgb(95, 91, 202) 0%, rgb(95, 91, 202) 50%, rgb(0, 186, 188) 50%, rgb(0, 186, 188) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+.personal-voice .saiba-mais__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px 30px;
+  gap: 30px;
+  background: rgb(95, 91, 202);
+  background: linear-gradient(0deg, rgb(95, 91, 202) 0%, rgb(0, 186, 188) 100%);
+  border-radius: 15px;
+}
+.personal-voice .saiba-mais__wrapper .text {
+  font-size: 30px;
+  font-weight: bold;
+}
+.personal-voice .saiba-mais__wrapper .sb-button {
+  background-color: #ffffff;
+  padding: 10px 70px;
+  color: #5F5BCA;
+  border-radius: 10px;
+  font-size: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+@media (max-width: 1062px) {
+  .personal-voice .saiba-mais__wrapper {
+    justify-content: center;
+  }
+  .personal-voice .saiba-mais__wrapper .text {
+    text-align: center;
+  }
 }
 
-p {
+.capacitacao-profissional {
+  padding: 65px 0 0;
+  background-color: #00BABC;
+}
+.capacitacao-profissional p {
   color: #ffffff;
   font-size: 20px;
   text-align: left;
   box-sizing: border-box;
 }
-
-h2 {
+.capacitacao-profissional h2 {
   color: #ffffff;
   font-size: 40px;
   font-weight: bold;
+}
+.capacitacao-profissional .capacit-icon {
+  width: 100%;
+  max-width: 193px;
+}
+.capacitacao-profissional .capacit-icon.desktop {
+  display: none;
+}
+@media (min-width: 991px) {
+  .capacitacao-profissional .capacit-icon.desktop {
+    display: block;
+  }
+}
+.capacitacao-profissional .capacit-icon.mobile {
+  display: none;
+  margin: 0 auto 40px auto;
+  max-width: 300px;
+}
+@media (max-width: 990px) {
+  .capacitacao-profissional .capacit-icon.mobile {
+    display: block;
+  }
+}
+.capacitacao-profissional .course-box {
+  background-color: #ffffff;
+  width: 100%;
+  min-height: 160px;
+  color: #00BABC;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.capacitacao-profissional .saiba-mais {
+  width: 100%;
+  background: #00BABC;
+  background: linear-gradient(180deg, #00BABC 0%, #00BABC 50%, #eeeeee 50%, #eeeeee 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+.capacitacao-profissional .saiba-mais__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1460px;
+  padding: 20px 30px;
+  gap: 30px;
+  background: #00BABC;
+  background: linear-gradient(0deg, #00BABC 0%, #006768 100%);
+  border-radius: 15px;
+}
+.capacitacao-profissional .saiba-mais__wrapper .text {
+  font-size: 30px;
+  font-weight: bold;
+  color: #ffffff;
+}
+.capacitacao-profissional .saiba-mais__wrapper .sb-button {
+  background-color: #20CF66;
+  padding: 10px 70px;
+  color: #ffffff;
+  border-radius: 10px;
+  font-size: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+@media (max-width: 1162px) {
+  .capacitacao-profissional .saiba-mais__wrapper {
+    justify-content: center;
+  }
+  .capacitacao-profissional .saiba-mais__wrapper .text {
+    text-align: center;
+  }
+}
+
+.clientes {
+  background: rgb(238, 238, 238);
+  background: linear-gradient(180deg, rgb(238, 238, 238) 0%, rgb(255, 255, 255) 100%);
+  padding: 65px 0;
+}
+.clientes h2 {
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+.clientes .clients-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.clientes .clients-item {
+  background-color: #ffffff;
+  border-radius: 5px;
+  width: 227px;
+  height: 157px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clientes .clients-item img {
+  max-width: 60%;
+  object-fit: contain;
+}
+
+.contato {
+  padding: 65px 0;
+  background: rgb(0, 186, 188);
+  background: linear-gradient(180deg, rgb(0, 186, 188) 0%, rgb(0, 93, 94) 100%);
+}
+.contato h3 {
+  color: #ffffff;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.contato-info {
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.contato-info .whatsapp-box {
+  padding: 15px;
+  border-bottom: 1px solid #ffffff;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.contato-info .whatsapp-box a {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 25px;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+.contato-info .address-box {
+  padding: 15px;
+  color: #ffffff;
+}
+.contato .form-group {
+  margin-bottom: 20px;
+}
+.contato .form-control {
+  border: none;
+  border-radius: 10px;
+}
+.contato button[type=submit] {
+  background-color: #20CF66;
+  color: #ffffff;
+  border-radius: 10px;
+  border: none;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 10px 40px;
 }
 
 /*# sourceMappingURL=styles.css.map */
