@@ -366,23 +366,29 @@ h1, .h1 {
 }
 .personal-voice {
 
-	background-color: #5F5BCA;
+	background-color: $color-purple;
 	color: $color-white;
 
 
 	h2 {
-		font-size: 40;
+		font-size: 40px;
 		font-weight: bold;
 
 	}
 	p {
-		font-size: 20;
+		font-size: 20px;
 	}
 
 
 }
- .capacitacao-profissional {
-	 background-color: $color-accent ;
+.capacitacao-profissional {
+	background: rgb(2,0,36);
+	background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(0,186,188,1) 0%, rgba(0,212,255,1) 73%, rgba(0,186,188,1) 100%);
+
+	}
+
+
+
 	 p {
 		 color: $color-white;
 		 font-size: 20px;
@@ -391,9 +397,11 @@ h1, .h1 {
 	 }
 	 h2 {
 		 color: $color-white;
-		 font-size: 40;
+		 font-size: 40px;
 		 font-weight: bold;
 	 }
+
+
  }
 
 
