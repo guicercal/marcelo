@@ -270,6 +270,7 @@ h2, .h2 {
   background-image: url(./assets/images/gallery/IMG_3350.jpg);
   background-size: cover;
   background-position: center;
+  box-shadow: -10px 10px 0 #5F5BCA;
 }
 @media (min-width: 64.1rem) {
   .about-body .about-img {
