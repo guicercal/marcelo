@@ -9,7 +9,7 @@
           content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/scripts.js"></script>
+    <script src="./assets/js/scripts.js"></script>
 </head>
 <body>
 <header class="main-header" id="main-header">
@@ -17,10 +17,10 @@
         <div class="row-lg-12">
             <div class="main-header__wrapper">
                 <div class="main-header__logo">
-                    <img src="assets/images/main-logo.svg" alt="">
+                    <img src="./assets/images/main-logo.svg" alt="">
                 </div>
                 <div class="main-header__logo--sticky">
-                    <img src="assets/images/main-logo-sticky.svg" alt="">
+                    <img src="./assets/images/main-logo-sticky.svg" alt="">
                 </div>
                 <nav class="main-header__nav">
                     <ul>
@@ -34,7 +34,7 @@
                     </ul>
                 </nav>
                 <div id="mobile-menu-opener">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="30px">
                         <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                         <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
                     </svg>
@@ -46,42 +46,36 @@
 <section id="inicio" class="hero">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-12 hero-text">
-                <h1 class="h1 mb-3">Vamos cuidar da sua voz?</h1>
-                <p>
-                    Você com certeza já pensou em procurar um fonoaudiólogo, mas por que ainda não fez isso? Muitas
-                    vezes
-                    negligenciamos queixas importantes, necessidades e desejos que podem nos tornar pessoas melhores com
-                    mais saúde e bem estar.
-                </p>
-                <p>
-                    Que tal começar a cuidar de você? Estou te esperando para essa experiencia!!
-                </p>
+            <div class="col-lg-12 hero-text">
+                <div class="hero-text">
+                    <h1 class="h1 mb-3">Vamos cuidar da sua voz?</h1>
+                    <p>
+                        Você com certeza já pensou em procurar um fonoaudiólogo, mas por que ainda não fez isso? Muitas
+                        vezes
+                        negligenciamos queixas importantes, necessidades e desejos que podem nos tornar pessoas melhores com
+                        mais saúde e bem estar.
+                    </p>
+                    <p>
+                        Que tal começar a cuidar de você? Estou te esperando para essa experiencia!!
+                    </p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 <section id="sobre" class="about">
-    <div class="container about-heading">
-        <div class="row">
-            <div class="col-lg-4 offset-lg-3">
-                <div style="display: flex; height: 100px; align-items: end">
-                    <h3>
-                        Sobre
-                    </h3>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="about-body">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 position-relative p-0 mb-0 d-none d-lg-block">
+                <div class="col-lg-4 position-relative mb-4">
                     <div class="about-img">
 
                     </div>
                 </div>
-                <div class="col-lg-9 px-3">
+                <div class="col-lg-8 d-flex flex-column justify-content-center px-3">
+                    <h2>
+                        Sobre
+                    </h2>
                     <p>
                         Dr. <b>Marcelo Brim</b> atua há muitos anos como fonoaudiólogo e tem vasta experiência em
                         diversos
@@ -190,12 +184,12 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="fc-gallery">
-                    <img class="fc-gallery-item" src="assets/images/gallery/IMG_3359.png" alt="">
-                    <img class="fc-gallery-item" src="assets/images/gallery/IMG_3049.png" alt="">
-                    <img class="fc-gallery-item" src="assets/images/gallery/IMG_3239.png" alt="">
-                    <img class="fc-gallery-item" src="assets/images/gallery/IMG_3088.png" alt="">
-                    <img class="fc-gallery-item" src="assets/images/gallery/IMG_3149.png" alt="">
-                    <img class="fc-gallery-item" src="assets/images/gallery/IMG_3171.png" alt="">
+                    <img class="fc-gallery-item" src="./assets/images/gallery/IMG_3359.png" alt="">
+                    <img class="fc-gallery-item" src="./assets/images/gallery/IMG_3049.png" alt="">
+                    <img class="fc-gallery-item" src="./assets/images/gallery/IMG_3239.png" alt="">
+                    <img class="fc-gallery-item" src="./assets/images/gallery/IMG_3088.png" alt="">
+                    <img class="fc-gallery-item" src="./assets/images/gallery/IMG_3149.png" alt="">
+                    <img class="fc-gallery-item" src="./assets/images/gallery/IMG_3171.png" alt="">
                 </div>
             </div>
         </div>
@@ -205,7 +199,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 text-center">
-                <img class="pv-icon mb-5" src="assets/images/personal-voice-icon.svg" alt="">
+                <img class="pv-icon mb-5" src="./assets/images/personal-voice-icon.svg" alt="">
             </div>
             <div class="col-lg-8">
                 <h2 class="mb-4">
@@ -263,7 +257,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-10">
-                <img src="assets/images/capacit-icon.svg" class="capacit-icon mobile">
+                <img src="./assets/images/capacit-icon.svg" class="capacit-icon mobile">
                 <h2>
                     Capacitação profissional
                 </h2>
@@ -277,7 +271,7 @@
 
             </div>
             <div class="col-lg-2 col-sm-12">
-                <img src="assets/images/capacit-icon.svg" class="capacit-icon desktop">
+                <img src="./assets/images/capacit-icon.svg" class="capacit-icon desktop">
             </div>
         </div>
 
@@ -325,17 +319,17 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="clients-gallery">
-                    <div class="clients-item"><img src="assets/images/clientes/bom-jesus.png" alt="Bom Jesus"></div>
-                    <div class="clients-item"><img src="assets/images/clientes/exodus.png" alt="Exodus"></div>
-                    <div class="clients-item"><img src="assets/images/clientes/itecne.png" alt="ITCNE"></div>
-                    <div class="clients-item"><img src="assets/images/clientes/bagozi.png" alt="Bagozi"></div>
-                    <div class="clients-item"><img src="assets/images/clientes/tuiuti.png" alt="Tuiuti"></div>
-                    <div class="clients-item"><img src="assets/images/clientes/cefac.png" alt="Cefac"></div>
-                    <div class="clients-item"><img src="assets/images/clientes/unimed.png" alt="Unimed"></div>
-                    <div class="clients-item"><img src="assets/images/clientes/senac.png" alt="Senac"></div>
-                    <div class="clients-item"><img src="assets/images/clientes/boticario.png" alt="BOticario"></div>
-                    <div class="clients-item"><img src="assets/images/clientes/audiomed.png" alt="Audiomed"></div>
-                    <div class="clients-item"><img src="assets/images/clientes/gramofone.png" alt="Gramofone"></div>
+                    <div class="clients-item"><img src="./assets/images/clientes/bom-jesus.png" alt="Bom Jesus"></div>
+                    <div class="clients-item"><img src="./assets/images/clientes/exodus.png" alt="Exodus"></div>
+                    <div class="clients-item"><img src="./assets/images/clientes/itecne.png" alt="ITCNE"></div>
+                    <div class="clients-item"><img src="./assets/images/clientes/bagozi.png" alt="Bagozi"></div>
+                    <div class="clients-item"><img src="./assets/images/clientes/tuiuti.png" alt="Tuiuti"></div>
+                    <div class="clients-item"><img src="./assets/images/clientes/cefac.png" alt="Cefac"></div>
+                    <div class="clients-item"><img src="./assets/images/clientes/unimed.png" alt="Unimed"></div>
+                    <div class="clients-item"><img src="./assets/images/clientes/senac.png" alt="Senac"></div>
+                    <div class="clients-item"><img src="./assets/images/clientes/boticario.png" alt="Boticario"></div>
+                    <div class="clients-item"><img src="./assets/images/clientes/audiomed.png" alt="Audiomed"></div>
+                    <div class="clients-item"><img src="./assets/images/clientes/gramofone.png" alt="Gramofone"></div>
                 </div>
             </div>
         </div>
@@ -353,7 +347,7 @@
             <div class="col-lg-4">
                 <div class="contato-info">
                     <div class="whatsapp-box">
-                        <img src="assets/images/whatsapp-icon.svg" alt="">
+                        <img src="./assets/images/whatsapp-icon.svg" alt="">
                         <a href="https://wa.me/?phone=5541996337615" target="_blank">41 99633-7615</a>
                     </div>
                     <div class="address-box">
@@ -405,7 +399,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <img src="assets/images/main-logo.svg" alt="">
+                <img src="./assets/images/main-logo.svg" alt="">
             </div>
         </div>
     </div>

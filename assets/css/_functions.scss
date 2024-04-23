@@ -1,0 +1,212 @@
+// Rem Calculation of Pixel Values
+$rem-base: 16px;
+
+///
+/// Get the z-index value that corresponds to a list of layers above a threeshold.
+///
+/// @param {String} $name - Name of the layer (look at $z-indexes in variables.scss)
+/// @return {Number} - The number that corresponds to the name within the array.
+///
+@function z($name) {
+	@if index($z-indexes, $name) {
+		@return 100 + (length($z-indexes) - index($z-indexes, $name)) + 1;
+	} @else {
+		@warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+		@return null;
+	}
+}
+
+@function strip-unit($num) {
+	@return $num / ($num * 0 + 1);
+}
+
+@function convert-to-rem($value, $base-value: $rem-base, $limit: true) {
+	@if abs($value) < 8 and $limit {
+		@return $value * 1px;
+	}
+
+	$value: strip-unit($value) / strip-unit($base-value) * 1rem;
+
+	@return $value;
+}
+
+@function rem-calc($values, $limit: true, $base-value: $rem-base) {
+	$max: length($values);
+
+	@if $max == 1 {
+		@return convert-to-rem(nth($values, 1), $base-value, $limit);
+	}
+	$remValues: ();
+
+	@for $i from 1 through $max {
+		$remValues: append(
+			$remValues,
+			convert-to-rem(nth($values, $i), $base-value)
+		);
+	}
+
+	@return $remValues;
+}
+
+@function css-function( $function, $values... ) {
+	@return $function
+		+ unquote( '(' )
+		+ $values
+		+ unquote( ')' )
+;
+}
+
+@function css-min( $values... ) {
+	@return css-function( min, $values );
+}
+
+@function css-max( $values... ) {
+	@return css-function( max, $values );
+}
+
+@function css-clamp( $values... ) {
+	@return css-function( clamp, $values );
+}
+
+///
+/// Returns a calc that translates into a fluid value between two breakpoints/limits.
+/// Commonly used for fluid typography - https://css-tricks.com/simplified-fluid-typography/
+/// Example usage: font-size: fluid('phone-small', 'tablet', 12px, 18px);
+///                line-height: fluid('phone-small', '1800px', 12px, 18px);
+/// Note that this is a linear function that will not stop growing/shrinking before or after the given breakpoints.
+///
+/// @param {String} $min-breakpoint - Where the distance starts to be calculated from.
+/// @param {String} $max-breakpoint - Where the distance ends.
+/// @param {Pixel Value} $min-value - The the minimum value that starts from the distance starting point.
+/// @param {Pixel Value} $max-value - The the maximum value that ends for the distance ending point.
+/// @return {String} - The calc() CSS operation with crazy mathz.
+///
+@function fluid($min-breakpoint, $max-breakpoint, $min-value, $max-value) {
+	$min-vw: 0;
+	$max-vw: 0;
+
+	@if map-has-key($breakpoints, $min-breakpoint) {
+		$min-vw: map-get($breakpoints, $min-breakpoint);
+	} @else {
+		$min-vw: to-number($min-breakpoint);
+	}
+
+	@if map-has-key($breakpoints, $max-breakpoint) {
+		$max-vw: map-get($breakpoints, $max-breakpoint);
+	} @else {
+		$max-vw: to-number($max-breakpoint);
+	}
+
+	$min-value: rem-calc($min-value, false);
+	$max-value: rem-calc($max-value, false);
+
+	$u1: unit($min-vw);
+	$u2: unit($max-vw);
+	$u3: unit($min-value);
+	$u4: unit($max-value);
+
+	@if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+		@return calc(
+			#{$min-value} + #{(strip-unit($max-value) - strip-unit($min-value))}
+			* ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+		);
+	}
+}
+
+@function fluidfy($min-value, $max-value, $min-breakpoint: 'phone-xsmall', $max-breakpoint: 'desktop-xlarge'){
+
+	@if $max-value == 0 {
+		$max-value: 0.001px;
+	}
+
+	@if $min-value == 0 {
+		$min-value: 0.001px;
+	}
+
+	@if $min-value < $max-value {
+		@return css-min(fluid($min-breakpoint, $max-breakpoint, $min-value, $max-value), $max-value);
+	}
+	@else {
+		@return css-clamp($max-value, fluid($min-breakpoint, $max-breakpoint, $min-value, $max-value), $min-value);
+	}
+}
+///
+/// Returns a clamp that translates into a fluid value between two breakpoints/limits.
+/// Can use to adjust the size within certain bounds to fit the viewport.
+/// clamp() - https://developer.mozilla.org/en-US/docs/Web/CSS/clamp()
+/// Use case - https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport
+/// Example usage:
+/// 			width: preferredValue(300, 1720);
+/// 			height: preferredValue(100, 400)
+/// 			font-size: preferredValue(12, 18, 'phone-small', 'tablet');
+/// 			line-height: preferredValue(12, 18, 'phone-small', '1800px');
+/// Note that this is a linear function that will stop growing/shrinking before or after the given breakpoints.
+///
+/// @param {Value} $min-value - The the minimum value that starts from the distance starting point. Normally the value in mobile designs.
+/// @param {Value} $max-value - The the maximum value that ends for the distance ending point. Normally the value in desktop designs.
+/// @param {String} $min-breakpoint - Where the distance starts to be calculated from. Default is 'phone-xsmall' = 320px
+/// @param {String} $max-breakpoint - Where the distance ends. Default is 'desktop-xlarge' = 1920px
+/// @return {String} - The clamp() CSS operation with crazy mathz.
+///
+@function preferredValue(
+	$min-value,
+	$max-value,
+	$min-breakpoint: 'phone-xsmall',
+	$max-breakpoint: 'desktop-xlarge'
+) {
+	$min-vw: 0;
+	$max-vw: 0;
+
+	@if map-has-key($breakpoints, $min-breakpoint) {
+		$min-vw: map-get($breakpoints, $min-breakpoint);
+	} @else {
+		$min-vw: to-number($min-breakpoint);
+	}
+
+	@if map-has-key($breakpoints, $max-breakpoint) {
+		$max-vw: map-get($breakpoints, $max-breakpoint);
+	} @else {
+		$max-vw: to-number($max-breakpoint);
+	}
+
+	$min-value: rem-calc($min-value, false);
+	$max-value: rem-calc($max-value, false);
+
+	$u1: unit($min-vw);
+	$u2: unit($max-vw);
+	$u3: unit($min-value);
+	$u4: unit($max-value);
+
+	@if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+		$slope: ($max-value - $min-value) / ($max-vw - $min-vw);
+		$yAxisIntersection: - strip-unit($min-vw) * $slope + strip-unit($min-value);
+
+		@return clamp(
+			$min-value,
+			$yAxisIntersection#{rem} + $slope * 100#{vw},
+			$max-value
+		);
+	}
+}
+
+///
+/// sequential-delay
+///
+/// Adds sequential delay to the
+/// specified number of children.
+///
+/// @param number $length
+/// @param time $delayAmount
+///
+@mixin sequential-delay( $length, $delayAmount: 100ms, $child: '', $addedDelay: 0s) {
+	@for $x from 1 through $length {
+		&:nth-child( #{ $x } ) #{ $child } {
+			transition-delay: #{ ( $x - 1 ) * $delayAmount + $addedDelay };
+		}
+	}
+
+	&:nth-child( n + #{ $length + 1 } ) {
+		transition-delay: #{ $delayAmount * $length };
+	}
+}
+

@@ -1,4 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"); /**
+ *  Mixin ratio accepts a width and height and generates a pseudo
+ *  element that maintains the ratio of the dimensions provided.
+ */
 * {
   font-family: "Montserrat", sans-serif;
 }
@@ -22,7 +25,12 @@ body {
 
 h1, .h1 {
   color: #00BABC;
-  font-size: 48px;
+  font-size: min(calc( 			2rem + 0.8125 			* ((100vw - 20rem) / 100) 		), 45px);
+  font-weight: bold;
+}
+
+h2, .h2 {
+  font-size: min(calc( 			2rem + 0.8125 			* ((100vw - 20rem) / 100) 		), 45px);
   font-weight: bold;
 }
 
@@ -30,7 +38,7 @@ h1, .h1 {
   display: none;
 }
 #mobile-menu-opener svg {
-  width: 50px;
+  width: 30px;
 }
 #mobile-menu-opener path {
   fill: #58595B;
@@ -74,7 +82,7 @@ h1, .h1 {
   color: #58595B;
   font-weight: 700;
   text-decoration: none;
-  font-size: calc(12px + 6 * (100vw - 981px) / 939);
+  font-size: min(calc( 			0.875rem + 0.25 			* ((100vw - 75rem) / 45) 		), 18px);
 }
 .main-header__nav ul a:hover {
   color: #00BABC;
@@ -137,9 +145,6 @@ h1, .h1 {
 .hero {
   position: relative;
   padding: 200px 0;
-  background-image: url(assets/images/hero-bg.jpg);
-  background-size: cover;
-  background-position: right;
   width: 100%;
   z-index: 1;
   background-color: #2B2784;
@@ -183,6 +188,25 @@ h1, .h1 {
   		}
   	}*/
 }
+@media (min-width: 75.1rem) {
+  .hero {
+    background-image: url(./assets/images/hero-bg.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+}
+@media (min-width: 90.1rem) {
+  .hero {
+    background-position: right;
+  }
+}
+@media (min-width: 120.1rem) {
+  .hero {
+    background-size: 1920px auto;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
 .hero h1 {
   color: #00BABC;
   font-size: 48px;
@@ -195,6 +219,12 @@ h1, .h1 {
 }
 .hero-text {
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.38);
+  width: 100%;
+}
+@media (min-width: 75.1rem) {
+  .hero-text {
+    max-width: 500px;
+  }
 }
 @media (max-width: 1050px) {
   .hero {
@@ -211,12 +241,11 @@ h1, .h1 {
   }
 }
 .about {
-  padding-top: 50px;
+  padding: 65px 0;
+  background-color: #00BABC;
 }
-.about h3 {
-  color: #00BABC;
-  font-size: 32px;
-  font-weight: bold;
+.about h2 {
+  color: #ffffff;
 }
 .about p {
   color: #ffffff;
@@ -233,27 +262,24 @@ h1, .h1 {
   position: relative;
   padding-top: 20px;
 }
-.about-body::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  background: rgb(0, 186, 188);
-  background: linear-gradient(180deg, rgb(0, 186, 188) 0%, rgb(0, 93, 94) 100%);
-}
 .about-body .about-img {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   aspect-ratio: 1;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  background-image: url(assets/images/gallery/IMG_3359.png);
+  max-width: 300px;
+  border-radius: 13.5%;
+  background-image: url(./assets/images/gallery/IMG_3350.jpg);
   background-size: cover;
   background-position: center;
+}
+@media (min-width: 64.1rem) {
+  .about-body .about-img {
+    max-width: 500px;
+  }
+}
+@media (min-width: 75.1rem) {
+  .about-body .about-img {
+    max-width: none;
+  }
 }
 
 .fonoaudiologia-clinica {
@@ -266,11 +292,11 @@ h1, .h1 {
 .fonoaudiologia-clinica .fc-heading::before {
   position: absolute;
   left: 0;
-  top: calc(50% - 10px);
+  top: calc(50% - 2px);
   z-index: 0;
   content: "";
   width: 100%;
-  height: 10px;
+  height: 2px;
   background-color: #00BABC;
 }
 .fonoaudiologia-clinica .h1 {
@@ -312,7 +338,7 @@ h1, .h1 {
   top: 0;
   width: 14px;
   height: 21px;
-  background-image: url(assets/images/mini-logo-filled.svg);
+  background-image: url(./assets/images/mini-logo-filled.svg);
   background-size: contain;
   background-position: center;
 }
@@ -330,14 +356,14 @@ h1, .h1 {
   content: "";
   position: absolute;
   top: 65%;
-  right: 15%;
+  right: 50%;
   width: 300px;
   aspect-ratio: 454/654;
-  background-image: url(assets/images/logo.svg);
+  background-image: url(./assets/images/logo.svg);
   background-size: contain;
   background-repeat: no-repeat;
   z-index: -1;
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translateX(-215%);
 }
 @media (max-width: 775px) {
   .fonoaudiologia-clinica::after {
@@ -350,17 +376,18 @@ h1, .h1 {
   background-color: #5F5BCA;
   color: #ffffff;
 }
-.personal-voice h2 {
-  font-size: 40px;
-  font-weight: bold;
-}
 .personal-voice p {
   font-size: 20px;
 }
 .personal-voice .pv-icon {
   width: 100%;
-  max-width: 356px;
+  max-width: 246px;
   object-fit: contain;
+}
+@media (min-width: 48.1rem) {
+  .personal-voice .pv-icon {
+    max-width: 356px;
+  }
 }
 .personal-voice .pv-subheading {
   border-bottom: 2px solid #ffffff;
@@ -381,7 +408,7 @@ h1, .h1 {
   top: 0;
   width: 20px;
   height: 20px;
-  background-image: url(assets/images/check-icon.svg);
+  background-image: url(./assets/images/check-icon.svg);
   background-size: cover;
 }
 .personal-voice .saiba-mais {
@@ -412,10 +439,10 @@ h1, .h1 {
 }
 .personal-voice .saiba-mais__wrapper .sb-button {
   background-color: #ffffff;
-  padding: 10px 70px;
   color: #5F5BCA;
   border-radius: 10px;
-  font-size: 30px;
+  padding: 10px min(calc( 			2.5rem + 1.875 			* ((100vw - 20rem) / 100) 		), 70px);
+  font-size: min(calc( 			1.375rem + 0.5 			* ((100vw - 20rem) / 100) 		), 30px);
   text-decoration: none;
   font-weight: bold;
 }
@@ -440,8 +467,6 @@ h1, .h1 {
 }
 .capacitacao-profissional h2 {
   color: #ffffff;
-  font-size: 40px;
-  font-weight: bold;
 }
 .capacitacao-profissional .capacit-icon {
   width: 100%;
@@ -458,7 +483,7 @@ h1, .h1 {
 .capacitacao-profissional .capacit-icon.mobile {
   display: none;
   margin: 0 auto 40px auto;
-  max-width: 300px;
+  max-width: 200px;
 }
 @media (max-width: 990px) {
   .capacitacao-profissional .capacit-icon.mobile {
@@ -470,7 +495,7 @@ h1, .h1 {
   width: 100%;
   min-height: 160px;
   color: #00BABC;
-  font-size: 24px;
+  font-size: min(calc( 			1.125rem + 0.375 			* ((100vw - 20rem) / 100) 		), 24px);
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -508,10 +533,10 @@ h1, .h1 {
 }
 .capacitacao-profissional .saiba-mais__wrapper .sb-button {
   background-color: #20CF66;
-  padding: 10px 70px;
   color: #ffffff;
   border-radius: 10px;
-  font-size: 30px;
+  padding: 10px min(calc( 			2.5rem + 1.875 			* ((100vw - 20rem) / 100) 		), 70px);
+  font-size: min(calc( 			1.375rem + 0.5 			* ((100vw - 20rem) / 100) 		), 30px);
   text-decoration: none;
   font-weight: bold;
 }
@@ -528,10 +553,6 @@ h1, .h1 {
   background: rgb(238, 238, 238);
   background: linear-gradient(180deg, rgb(238, 238, 238) 0%, rgb(255, 255, 255) 100%);
   padding: 65px 0;
-}
-.clientes h2 {
-  font-weight: bold;
-  margin-bottom: 40px;
 }
 .clientes .clients-gallery {
   display: flex;
