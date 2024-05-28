@@ -18,6 +18,7 @@ $(function (){
   }
 
   // Função para verificar a posição de rolagem e aplicar a classe
+
   function checkScroll() {
     var scroll = $(window).scrollTop();
     if (scroll > 219) {

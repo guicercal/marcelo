@@ -9,7 +9,7 @@
 body {
 	overflow-x: hidden;
 	height: 4000px;
-	padding-top: 106px;
+	padding-top: 160px;
 }
 
 .container {
@@ -62,10 +62,10 @@ h2, .h2 {
 	
 	&__wrapper {
 		display: flex;
-		align-items: center;
 		justify-content: space-between;
 		transition: all .2s ease;
 		position: relative;
+		align-items: flex-end;
 	}
 	
 	&__nav ul {
@@ -106,7 +106,6 @@ h2, .h2 {
 		.main-header__wrapper {
 			align-items: center;
 			transition: all .2s ease;
-			
 		}
 		
 		.main-header__logo--sticky {
@@ -121,11 +120,6 @@ h2, .h2 {
 	@media (max-width: 1050px) {
 		padding: 20px 0;
 		
-		.main-header__wrapper {
-			align-items: center;
-		}
-		
-		
 		.main-header__nav {
 			position: absolute;
 			left: -20px;
@@ -135,7 +129,7 @@ h2, .h2 {
 			width: 100vw;
 			transform: translateX(-100%);
 			transition: all .2s ease;
-			padding: 20px 0;
+			padding: 20px 30px;
 			
 			ul {
 				flex-direction: column;
@@ -302,7 +296,7 @@ h2, .h2 {
 
 
 .fonoaudiologia-clinica {
-	padding: 40px 0;
+	padding: 65px 0;
 	position: relative;
 	
 	.fc-heading {
